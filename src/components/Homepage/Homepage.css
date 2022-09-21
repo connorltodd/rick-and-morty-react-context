@@ -1,0 +1,29 @@
+.character-container {
+    display: flex;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.character-card {
+    display: flex;
+    flex-direction: column;
+    justify-content:stretch;
+    width: 250px;
+    height: 350px;
+    border: 2px solid;
+}
+
+.character-card-image {
+    width: 100%;
+}
+
+.character-card-name {
+    font-size: 24px;
+    text-align: center;
+}
