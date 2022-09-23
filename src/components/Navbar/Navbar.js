@@ -1,11 +1,16 @@
-import Searchbar from '../Searchbar';
+import React from "react"
 import './Navbar.css';
 
-export default function Navbar () {
-    return (
-        <div className='navbar'>
-            <h1>Rick and Morty Search App</h1>
-            <Searchbar />
-        </div>
-    )
+import { SearchContext } from "../../contexts/SearchContext"
+export default function Searchbar () {
+   const { handleCharacterSearch } = React.useContext(SearchContext)
+   return (
+       <div>
+           <input
+               onChange={(event) => handleCharacterSearch(event.target.value)}
+               type='text'
+               placeholder="search for a character"
+           />
+       </div>
+   )
 }

@@ -2,13 +2,15 @@ import Homepage from './components/Homepage/Homepage';
 import Navbar from './components/Navbar/Navbar';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <Navbar />
-      <Homepage />
-    </div>
-  );
-}
+import SearchContextProvider from './contexts/SearchContext';
 
-export default App;
+export default function App() {
+ return (
+   <div className="App">
+     <SearchContextProvider>
+       <Navbar />
+       <Homepage />
+     </SearchContextProvider>
+   </div>
+ );
+}
