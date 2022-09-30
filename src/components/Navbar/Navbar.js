@@ -1,11 +1,14 @@
 import React from "react"
+import { Link } from "react-router-dom";
+import { SearchContext } from "../../contexts/SearchContext"
 import './Navbar.css';
 
-import { SearchContext } from "../../contexts/SearchContext"
 export default function Searchbar () {
    const { handleCharacterSearch } = React.useContext(SearchContext)
    return (
        <div>
+        <Link to="/">home</Link>
+        <Link to="/favorites">Favorites</Link>
            <input
                onChange={(event) => handleCharacterSearch(event.target.value)}
                type='text'

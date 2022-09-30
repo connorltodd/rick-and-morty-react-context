@@ -1,10 +1,12 @@
 import React from "react";
 import './Homepage.css';
 import { SearchContext } from "../../contexts/SearchContext";
+import { FavoritesContext } from "../../contexts/FavoritesContext";
 
 export default function Homepage () {
     const [characters, setCharacters] = React.useState([])
-    const { characterSearch } = React.useContext(SearchContext)
+    const { characterSearch } = React.useContext(SearchContext);
+    const { addToFavorites } = React.useContext(FavoritesContext);
 
     React.useEffect(() => {
         fetchCharacters()
@@ -28,6 +30,7 @@ export default function Homepage () {
                 <div className="character-card">
                     <img className="character-card-image" src={character.image} alt="" />
                     <h1 className="character-card-name">{character.name}</h1>
+                    <button onClick={() => addToFavorites(character)}>Add To Favorites</button>
                 </div>
             ))}
         </div>
