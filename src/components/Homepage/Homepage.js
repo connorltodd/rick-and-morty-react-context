@@ -1,8 +1,10 @@
 import React from "react";
+import { SearchContext } from "../../contexts/SearchContext";
 import './Homepage.css';
 
 export default function Homepage () {
     const [characters, setCharacters] = React.useState([])
+    const { characterSearch } = React.useContext(SearchContext)
 
     React.useEffect(() => {
         fetchCharacters()
@@ -15,7 +17,13 @@ export default function Homepage () {
     }
     return (
         <div className="character-container">
-            {characters.map(character => (
+            {characters
+            .filter(character => characterSearch !== '' ? 
+                character.name.toLowerCase().startsWith(characterSearch.toLowerCase()) ? character : null
+            : 
+                character
+            )
+            .map(character => (
                 <div className="character-card">
                     <img className="character-card-image" src={character.image} alt="" />
                     <h1 className="character-card-name">{character.name}</h1>
